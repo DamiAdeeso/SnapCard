@@ -1,0 +1,23 @@
+.navbar{
+    background-color: yellow;
+
+   
+}
+.navbar .container{
+    padding-left: 2rem;
+    /* padding-top: 1rem;
+    padding-bottom: 5rem; */
+    margin: 0;
+}
+.navbar .navbar-brand{
+   background-color: #E8E531;
+   padding:  20%;
+   text-align: left;
+}
+.navbar img{
+    width:80px;
+
+}
+.navbar a{
+    font-weight: 800;
+}
