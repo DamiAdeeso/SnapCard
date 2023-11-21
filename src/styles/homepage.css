@@ -1,0 +1,42 @@
+.side-bar{
+    background-color:#fcfcfc;
+    height: 88vh;
+    border-right: solid 3px #eeeeee;
+    padding-left: 0;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+   ::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+   ::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
+  }
+  
+  div:hover::-webkit-scrollbar-thumb {
+    background: #E8E531;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E8E531 !important;
+  }
+.whole-page{
+   overflow: hidden;
+   width:20vw;
+}
+.field-div{
+    border-bottom: solid 3px #eeeeee;
+    margin:0;
+    height:100px;
+    padding: 3rem 0rem;
+    font-size: 20px
+    ;
+}
+.form .field-div .button{
+    color:yellow;
+}

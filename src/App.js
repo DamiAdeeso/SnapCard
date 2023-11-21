@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import MyNavbar from "./components/MyNavbar";
+import HomePage from './Screens/HomePage';
 function App() {
   return (
-    <MyNavbar/>
+    <div>
+      <MyNavbar />
+       <HomePage/>
+       <Footer/>
+    </div>
+    
   );
 }
 
