@@ -10,5 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class SecurityConfiguration {
 
     private final JWTAuthenticationFilter jwtAuthenticationFilter;
-
+    private final UserService userService;
+    
 }
