@@ -47,7 +47,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
        return user;
     }
 
-    public SignInResponse SignIn(SignInRequest signInRequest){
+
+    public SignInResponse signIn(SignInRequest signInRequest) {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signInRequest.getEmail(),signInRequest.getPassword()));
         }catch(BadCredentialsException e){
@@ -55,11 +56,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         var user = userRepository.findByEmail(signInRequest.getEmail()).orElseThrow(()->new IllegalArgumentException());
 
-       var jwt =  jwtService.generateToken(user);
+        var jwt =  jwtService.generateToken(user);
 
         var refreshToken = jwtService.generateRefreshToken(new HashMap<>(),user);
 
         return new SignInResponse(user,jwt,refreshToken);
     }
+
 
 }
