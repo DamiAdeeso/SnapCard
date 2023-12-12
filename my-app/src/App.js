@@ -1,16 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
 import MyNavbar from "./components/MyNavbar";
 import HomePage from './Screens/HomePage';
 import Footer from './components/footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SignInPage from './Screens/SignInPage';
+import SignUpPage from './Screens/SignUpPage';
 function App() {
   return (
-    <div>
+      
+      <BrowserRouter>
       <MyNavbar />
-       <HomePage/>
-       <Footer/>
-    </div>
-    
+      <Routes>
+        <Route path = "/home" element ={<HomePage/>}></Route>
+        <Route path = "/signin" element ={<SignInPage/>}></Route>
+        <Route path ="/signup" element = {<SignUpPage/>}></Route>
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
   );
 }
 

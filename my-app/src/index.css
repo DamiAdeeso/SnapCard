@@ -6,14 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.btn{
+  background-color: #ef651f;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-#save-button{
-  background-color: #E8E531;
+.save-button{
+  background-color: #784BA0;
   border: 0;
   margin-left: auto;
   font:15px;
@@ -22,6 +24,5 @@ code {
   margin-right: 3rem;
 }
 .my-control:focus, .focus-visible {
-
   box-shadow: 0 0 5px #E8E531 !important;
 }

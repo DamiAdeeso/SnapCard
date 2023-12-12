@@ -1,0 +1,24 @@
+#signup-page{
+    width:100%;
+    height:100%;
+    color:#ef651f;
+}
+#signup-row{
+    height:50%;
+    width:80%;
+    margin-top:5%;
+    margin-left:auto ;
+    margin-right: auto;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+#animation{
+    margin-top: 0;
+    width:80%;
+    height:100%;
+}
+#button{
+    background-color: #ef651f;
+    border: none;
+    margin-left: auto;
+    margin-right:auto;
+}

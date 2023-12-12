@@ -19,11 +19,11 @@
   }
   
   div:hover::-webkit-scrollbar-thumb {
-    background: #E8E531;
+    background: #784BA0;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #E8E531 !important;
+    background: #784BA0 !important;
   }
 .whole-page{
    overflow: hidden;
@@ -38,5 +38,5 @@
     ;
 }
 .form .field-div .button{
-    color:yellow;
+    color:#784BA0;
 }

@@ -1,0 +1,46 @@
+#signin-body {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+#signin-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/public/main-background.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.5; /* Adjust the opacity of the background image */
+}
+
+#signin-div {
+    background-color: #f8f0ff;
+    opacity: 1;
+    border-radius: 60px;
+    height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#ignin-div .form{
+    text-align: center;
+}
+#signin-div .form-control{
+    height:50px;
+    width:60%;
+    border-radius: 15px;
+}
+
+#signin-div  .btn{
+    width:40%;
+    font-size: 22px;
+    height:20%;
+    margin-left: auto;
+    margin-right:auto;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
