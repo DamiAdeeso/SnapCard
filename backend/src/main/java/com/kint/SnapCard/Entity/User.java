@@ -1,10 +1,11 @@
 package com.kint.SnapCard.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 
 @Data
@@ -26,10 +27,13 @@ public class User implements UserDetails {
     @Column(name  = "last_name")
     private String  lastName;
 
-    @Column (name = "email")
+    @Column (name = "email", unique = true)
+    @NonNull
+//    @NotEmpty(message = {"Email cannot be blank"})
     private String email;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @Column (name = "company_name")

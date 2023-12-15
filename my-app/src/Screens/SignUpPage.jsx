@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import React, { useReducer, useState } from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import logo from './animation.png'
 import "../styles/signup.css";
 import { FaArrowRight } from "react-icons/fa";
+import axios from 'axios';
+import LoadingBox from '../components/LoadingBox';
 
 function SignupPage() {
   const [firstName, setFirstName] = useState("");
@@ -13,15 +15,45 @@ function SignupPage() {
   const [companyName,setCompanyName] =useState("");
   const [position,setPosition] = useState("");
   const [companyAddress,setCompanyAddress] =useState("");
-  const [phoneNumber1,setPhoneNumber] = useState("");
+  const [phoneNumber1,setPhoneNumber1] = useState("");
   const [phoneNumber2,setPhoneNumber2] = useState("");
+  // const [reducer,dispatch] = useReducer("");
+   const reducer = (state,action)=> {
+    switch(action.type){
+    case "SIGNUP_REQUEST":
+      return{...state, loading:true};
+    case "SIGNUP_SUCCESS":
+    return {...state, loading:false};
+    case "SIGNUP_ERRROR":
+    return {...state, loading:false};
 
-  const onSubmit = (e)=>{
+    default:
+      return state;
+    }
+
+   }
+   const [{loading},dispatch] = useReducer(reducer,{
+    loading:false
+   })
+  const onSubmit = async (e)=>{
     e.preventDefault();
     try{
-      const firstName = 
+      dispatch({type:"SIGNUP_REQUEST"})
+      const user = await axios.post("/api/v1/auth/signup",{
+        firstName,
+        lastName,
+        middleName,
+        email,
+        password,
+        companyName,
+        position,
+        companyAddress,
+        phoneNumber1,
+        phoneNumber2
+      })
+      dispatch({type:"SIGNUP_SUCCESS"});
     }catch(err){
-
+      dispatch({type:"SIGNUP_ERROR"});
     }
 
   }
@@ -79,7 +111,7 @@ function SignupPage() {
             <Form.Group >
               <Row>
                 <Col md={6} >
-                  <Form.Control md={6}type="text" className="m-2" placeholder="Phone Number 1" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
+                  <Form.Control md={6}type="text" className="m-2" placeholder="Phone Number 1" onChange={(e)=>{setPhoneNumber1(e.target.value)}}/>
                 </Col>
                 <Col md={6} >
                   <Form.Control md ={6} type="text" className="m-2" placeholder="Phone Number 2" onChange={(e)=>{setPhoneNumber2(e.target.value)}}/>
@@ -88,15 +120,12 @@ function SignupPage() {
 
             </Form.Group>
 
-            <Button type="submit" id = "button" className='px-4'><FaArrowRight fill= "#ffffff" /></Button>
+            {loading?<LoadingBox/>:<Button type="submit" id = "button" className='px-4 mt-3 mb-5'><FaArrowRight fill= "#ffffff" /></Button>}
           </Form>
-
-
         </Col>
         <Col xs={{span:12,order:1}} md={{span:7,order:2}} id='test' className='d-flex align-items-center justify-content-center'>
           <img src={logo} alt="logo" id="animation" />
         </Col>
-
       </Row>
     </div>
   )

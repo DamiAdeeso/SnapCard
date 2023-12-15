@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button, Col, Container, Form, FormText, Navbar, Row } from 'react-bootstrap'
+import { Button,Container, Col, Form, Row } from 'react-bootstrap'
 import "../styles/homepage.css"
-import MyNavbar from '../components/MyNavbar'
 function HomePage() {
     return (
         <div>

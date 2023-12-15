@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/navbar.css'
 
 export default function MyNavbar() {
@@ -9,7 +8,7 @@ export default function MyNavbar() {
     <Navbar collapseOnSelect expand="lg" className="">
       <Container className='py-0 d-flex'>
         <Navbar.Brand href="#home" className='py-0 rounded'>
-          <img src = "./brand-logo.png" />
+          <img src = "./brand-logo.png"  alt= "brand-logo"/>
         </Navbar.Brand>
         <Navbar.Toggle className = "py-0"aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
