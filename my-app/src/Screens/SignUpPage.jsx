@@ -5,8 +5,10 @@ import "../styles/signup.css";
 import { FaArrowRight } from "react-icons/fa";
 import axios from 'axios';
 import LoadingBox from '../components/LoadingBox';
+import { useNavigate } from 'react-router-dom';
 
 function SignupPage() {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [middleName,setMiddleName] = useState("");
@@ -52,6 +54,7 @@ function SignupPage() {
         phoneNumber2
       })
       dispatch({type:"SIGNUP_SUCCESS"});
+      navigate("/dashboard")
     }catch(err){
       dispatch({type:"SIGNUP_ERROR"});
     }

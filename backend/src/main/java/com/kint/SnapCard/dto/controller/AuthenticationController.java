@@ -1,4 +1,4 @@
-package com.kint.SnapCard.controller;
+package com.kint.SnapCard.dto.controller;
 
 import com.kint.SnapCard.Entity.User;
 import com.kint.SnapCard.dto.SignInRequest;
