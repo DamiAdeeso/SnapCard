@@ -1,10 +1,9 @@
-package com.kint.SnapCard.dto.controller;
+package com.kint.SnapCard.controller;
 
 import com.kint.SnapCard.Entity.User;
-import com.kint.SnapCard.dto.SignInRequest;
-import com.kint.SnapCard.dto.SignInResponse;
-import com.kint.SnapCard.dto.SignUpRequest;
+import com.kint.SnapCard.dto.*;
 import com.kint.SnapCard.service.AuthenticationService;
+import com.kint.SnapCard.service.UpdateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,4 +24,7 @@ public class AuthenticationController {
         System.out.println("herehjkbkfhbm");
         return ResponseEntity.ok(authenticationService.signIn(signInRequest));
     }
+
 }
+
+

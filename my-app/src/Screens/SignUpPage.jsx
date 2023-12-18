@@ -6,8 +6,9 @@ import { FaArrowRight } from "react-icons/fa";
 import axios from 'axios';
 import LoadingBox from '../components/LoadingBox';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-function SignupPage() {
+function SignUpPage() {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
@@ -54,7 +55,8 @@ function SignupPage() {
         phoneNumber2
       })
       dispatch({type:"SIGNUP_SUCCESS"});
-      navigate("/dashboard")
+      toast.success('Sign-Up Succesful');
+      navigate("/signin")
     }catch(err){
       dispatch({type:"SIGNUP_ERROR"});
     }
@@ -134,4 +136,4 @@ function SignupPage() {
   )
 }
 
-export default SignupPage
+export default SignUpPage
