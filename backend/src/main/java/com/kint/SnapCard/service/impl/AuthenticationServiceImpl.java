@@ -1,5 +1,6 @@
 package com.kint.SnapCard.service.impl;
 
+import com.kint.SnapCard.Entity.Role;
 import com.kint.SnapCard.Entity.User;
 import com.kint.SnapCard.dto.SignInRequest;
 import com.kint.SnapCard.dto.SignInResponse;
@@ -42,6 +43,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
        user.setPhoneNo1(signupRequest.getPhoneNo1());
        user.setPhoneNo2(signupRequest.getPhoneNo2());
        user.setPosition(signupRequest.getPosition());
+       user.setRole(Role.USER);
 
        userRepository.save(user);
        return user;
@@ -49,6 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
     public SignInResponse signIn(SignInRequest signInRequest) {
+        System.out.println(signInRequest);
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signInRequest.getEmail(),signInRequest.getPassword()));
         }catch(BadCredentialsException e){

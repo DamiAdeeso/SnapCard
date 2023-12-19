@@ -12,7 +12,7 @@
 	<artifactId>SnapCard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SnapCard</name>
-	<description>A business card generator app</description>
+	<description>Business-app</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

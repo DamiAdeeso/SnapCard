@@ -1,11 +1,9 @@
 package com.kint.SnapCard.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 @Data
-@AllArgsConstructor
 public class SignInRequest {
-    private final String email;
-    private final String password;
+    private String email;
+    private String password;
 }

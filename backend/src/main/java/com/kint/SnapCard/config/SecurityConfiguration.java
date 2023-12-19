@@ -1,5 +1,6 @@
 package com.kint.SnapCard.config;
 
+import com.kint.SnapCard.Entity.Role;
 import com.kint.SnapCard.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +29,8 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request -> request.requestMatchers(
-                                "/api/v1/auth/**").permitAll()
+                .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers( "/api/v1/user/update").hasAnyAuthority(Role.USER.name())
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 ).authenticationProvider(authenticationProvider()).addFilterBefore(
