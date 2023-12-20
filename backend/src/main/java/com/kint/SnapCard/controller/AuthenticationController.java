@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
+    private final UpdateService updateService;
     @PostMapping("/signup")
     public ResponseEntity<User> signUp(@RequestBody SignUpRequest signUpRequest){
         return ResponseEntity.ok(authenticationService.signUp(signUpRequest));
@@ -24,7 +25,11 @@ public class AuthenticationController {
         System.out.println("herehjkbkfhbm");
         return ResponseEntity.ok(authenticationService.signIn(signInRequest));
     }
-
+    @PostMapping("/update")
+    public ResponseEntity<UpdateResponse> updateUser(@RequestBody UpdateRequest updateRequest, @RequestHeader String header){
+//        System.out.println(header);
+        return ResponseEntity.ok(updateService.updateUser(updateRequest));
+    }
 }
 
 
