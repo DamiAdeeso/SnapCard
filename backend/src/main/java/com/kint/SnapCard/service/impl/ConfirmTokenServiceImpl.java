@@ -1,43 +1,37 @@
 package com.kint.SnapCard.service.impl;
 
-import com.kint.SnapCard.dto.UpdateRequest;
+import com.kint.SnapCard.Entity.User;
+import com.kint.SnapCard.repository.UserRepository;
 import com.kint.SnapCard.service.ConfirmTokenService;
 import com.kint.SnapCard.service.JWTService;
 import com.kint.SnapCard.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
-public class ConfirmTokenServiceImpl  {
+public class ConfirmTokenServiceImpl implements ConfirmTokenService {
 
-//    JWTService jwtService;
-//    UserService userService;
-//
-//
-//    @Override
-//    public String extractEmail(UpdateRequest request) {
-//        final String authHeader = request.getHeader("Authorization");
-//        final String jwt;
-//        String userEmail="";
-//
-//        if(StringUtils.hasLength(authHeader) || !org.apache.commons.lang3.StringUtils.startsWith(authHeader,"Bearer ")){
-//            jwt = authHeader.substring(7);
-//            userEmail= jwtService.extractUserName(jwt);
-//        }
-//        UserDetails userDetails =userService.userDetailsService().loadUserByUsername(userEmail);
-//    return userEmail;
-//    }
-//    @Override
-//    public boolean confirmToken(UpdateRequest request) {
-//     final String email =   extractEmail(request);
-//     if(request.getEmail() == email){
-//         return true;
-//     }
-//     return false;
-//}
+    private final JWTService jwtService;
+    private final UserService userService;
+
+   private final UserRepository userRepository;
+
+
+    @Override
+    public boolean confirmToken(String authHeader, Long userId){
+        if(StringUtils.hasLength(authHeader) && org.apache.commons.lang3.StringUtils.startsWith(authHeader,"Bearer ")){
+           String jwt = authHeader.substring(7);
+           String userEmail = jwtService.extractUserName(jwt);
+
+            Optional<User> user = userRepository.findByUserId(userId);
+
+            if(userService.userDetailsService().loadUserByUsername(userEmail).equals(user.get().getEmail()));
+            return true;
+        }
+        return false;
+    }
 }
