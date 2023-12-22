@@ -29,8 +29,9 @@ public class ConfirmTokenServiceImpl implements ConfirmTokenService {
 
             Optional<User> user = userRepository.findByUserId(userId);
 
-            if(userService.userDetailsService().loadUserByUsername(userEmail).equals(user.get().getEmail()));
+            if(userEmail.equals(user.get().getEmail())){
             return true;
+            }
         }
         return false;
     }

@@ -1,5 +1,6 @@
 package com.kint.SnapCard.dto;
 
+import com.kint.SnapCard.Entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -16,4 +17,6 @@ public class UpdateRequest {
     private String phoneNo1;
     private String phoneNo2;
     private String position;
+
+
 }
