@@ -20,7 +20,10 @@ public class UserMapper {
         User unwrappedUser = unwrapUser(user,updateRequest.getUserId());
 
         try {
-            unwrappedUser.setFirstName(updateRequest.getFirstName());
+            if(!updateRequest.getFirstName().isEmpty()){
+                unwrappedUser.setFirstName(updateRequest.getFirstName());
+            }
+
             unwrappedUser.setLastName(updateRequest.getLastName());
             unwrappedUser.setMiddlename(updateRequest.getMiddleName());
             unwrappedUser.setPosition(updateRequest.getPosition());
