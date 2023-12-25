@@ -4,37 +4,41 @@ import { useReducer, useState } from 'react';
 import LoadingBox from '../components/LoadingBox';
 import { FaArrowRight } from 'react-icons/fa';
 import axios from 'axios';
+import logo from "./animation.png"
 
+const reducer = (state,action)=>{
+  switch(action.type){
+    case "SIGNIN_REQUEST":
+      return{...state,loading:true}
+    case "SIGNIN_SUCCESS":
+      return {...state,loading:false}
+    case "SIGNIN_ERROR":
+      return{...state,loading:false}
+  }
+}
+  
 function SignInPage() {
+
   const [email,setEmail]= useState("");
   const [password,setPassword] = useState("");
 
-     switch(action.type){
-      case "SIGNIN_REQUEST":
-        return{...state,loading:true}
-      case "SIGNIN_SUCCESS":
-        return {...state,loading:false}
-      case "SIGNIN_ERROR":
-        return{...state,loading:false}
-    }
 
-    const [{loading},dispatch] = useReducer({
-      laoding:false
-    })
-  }
+  const [{loading},dispatch] = useReducer(reducer,{
+    loading:false
+  })
+  
   const signin = async (e)=>{
     e.preventDefault();
     try{
-      tatst
-      const {user} = await axios.post("/signin",{
+      const {user} = await axios.put("/signin",{
         email,
         password
       })
     }catch(err){
       
     }
+  }
 
-   
   return (
     <div id='signup-page'>
       <Row className='p-3' id='signup-row'>
