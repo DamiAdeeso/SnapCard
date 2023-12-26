@@ -20,18 +20,30 @@ public class UserMapper {
         User unwrappedUser = unwrapUser(user,updateRequest.getUserId());
 
         try {
-            if(!updateRequest.getFirstName().isEmpty()){
+            if(updateRequest.getFirstName()!= null){
                 unwrappedUser.setFirstName(updateRequest.getFirstName());
             }
-
-            unwrappedUser.setLastName(updateRequest.getLastName());
-            unwrappedUser.setMiddlename(updateRequest.getMiddleName());
-            unwrappedUser.setPosition(updateRequest.getPosition());
-            unwrappedUser.setPhoneNo1(updateRequest.getPhoneNo1());
-            unwrappedUser.setPhoneNo2(updateRequest.getPhoneNo2());
-            unwrappedUser.setCompanyName(updateRequest.getCompanyName());
-            unwrappedUser.setCompanyName(updateRequest.getCompanyName());
-            unwrappedUser.setEmail(updateRequest.getEmail());
+            if(updateRequest.getLastName()!= null){
+                unwrappedUser.setLastName(updateRequest.getLastName());
+            }
+            if(updateRequest.getMiddleName() != null ){
+                unwrappedUser.setMiddlename(updateRequest.getMiddleName());
+            }
+            if(updateRequest.getPosition() != null){
+                unwrappedUser.setPosition(updateRequest.getPosition());
+            }
+           if(updateRequest.getPhoneNo1() != null){
+               unwrappedUser.setPhoneNo1(updateRequest.getPhoneNo1());
+           }
+            if(updateRequest.getPhoneNo2() != null ){
+                unwrappedUser.setPhoneNo2(updateRequest.getPhoneNo2());
+            }
+           if(updateRequest.getCompanyName() != null ){
+               unwrappedUser.setCompanyName(updateRequest.getCompanyName());
+           }
+            if(updateRequest.getEmail() != null){
+                unwrappedUser.setEmail(updateRequest.getEmail());
+            }
 
             userRepository.save(unwrappedUser);
         }catch(Error err){

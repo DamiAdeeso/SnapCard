@@ -23,6 +23,7 @@ public class AuthenticationController {
 
     @PostMapping("/signin")
     public ResponseEntity<SignInResponse> signIn(@RequestBody SignInRequest signInRequest) {
+
         return ResponseEntity.ok(authenticationService.signIn(signInRequest));
     }
 }

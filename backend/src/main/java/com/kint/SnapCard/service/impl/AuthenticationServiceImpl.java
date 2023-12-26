@@ -51,7 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
     public SignInResponse signIn(SignInRequest signInRequest) {
-        System.out.println(signInRequest);
+
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signInRequest.getEmail(),signInRequest.getPassword()));
         }catch(BadCredentialsException e){

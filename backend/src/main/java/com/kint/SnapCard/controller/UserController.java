@@ -18,7 +18,7 @@ public class UserController {
 
     private final ConfirmTokenService confirmTokenService;
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody UpdateRequest updateRequest, @RequestHeader(name = HttpHeaders.AUTHORIZATION, required = false) String authHeader){
         if(confirmTokenService.confirmToken(authHeader,updateRequest.getUserId())){
             return ResponseEntity.ok(updateService.updateUser(updateRequest));

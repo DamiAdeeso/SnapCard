@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import axios from 'axios';
 import logo from "./animation.png"
 import { Toastify } from 'toastify';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const reducer = (state, action) => {
@@ -34,15 +34,16 @@ function SignInPage() {
     e.preventDefault();
     try {
       dispatch({ type: "SIGNIN_REQUEST" })
-      const userInfo = await axios.post("/api/v1/auth/signin", {
+      const { data } = await axios.post("/api/v1/auth/signin", {
         email,
         password
       });
-      localStorage.setItem("userInfo",userInfo)
+      localStorage.setItem("userInfo", JSON.stringify(data));
       toast.success("Signed In")
       dispatch({ type: "SIGNIN_SUCCESS" });
       navigate("/dashboard");
     } catch (err) {
+      console.log(err)
       toast.error(err);
       dispatch({ type: "SIGNIN_ERROR" });
     }
