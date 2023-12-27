@@ -125,7 +125,7 @@ function SignUpPage() {
 
             </Form.Group>
 
-            {loading?<LoadingBox/>:<Button type="submit" id = "button" className='px-4 mt-3 mb-5'><FaArrowRight fill= "#ffffff" /></Button>}
+            {loading?<LoadingBox/>:<Button type="submit"  className='px-4 mt-3 mb-5 button'><FaArrowRight fill= "#ffffff" /></Button>}
           </Form>
         </Col>
         <Col xs={{span:12,order:1}} md={{span:7,order:2}} id='test' className='d-flex align-items-center justify-content-center'>

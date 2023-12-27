@@ -26,3 +26,9 @@ code {
 .my-control:focus, .focus-visible {
   box-shadow: 0 0 5px #E8E531 !important;
 }
+.button{
+  background-color: #ef651f;
+  border: none;
+  margin-left: auto;
+  margin-right:auto;
+}
